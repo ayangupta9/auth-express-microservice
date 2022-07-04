@@ -1,6 +1,10 @@
 const express = require('express')
-const { pool } = require('../db')
+// const { pool } = require('../db')
+const cookieParser = require('cookie-parser')
 const router = express.Router()
+
+router.use(cookieParser())
+
 
 const {
   registerUser,
