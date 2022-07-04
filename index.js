@@ -12,8 +12,8 @@ const app = express()
 
 const PORT = process.env.PORT || 8080
 app.use(express.json())
-app.use(cors())
-app.set("trust proxy", 1);
+app.use(cors({ credentials: true }))
+app.set('trust proxy', 1)
 app.use(cookieParser())
 app.set(
   express.urlencoded({
