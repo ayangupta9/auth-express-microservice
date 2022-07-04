@@ -10,12 +10,8 @@ const {
   getUser
 } = require('../controllers/auth')
 
-router.get('/test', (req, res) => {
-  res.json({
-    title: 'Test title',
-    description: 'Test Description',
-    joinedOn: new Date().toLocaleString()
-  })
+router.get('/', (req, res) => {
+  res.send('User authentication Express API')
 })
 
 router.get('/profile', verifyAccessToken, async (req, res) => {
