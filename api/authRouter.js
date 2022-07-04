@@ -59,20 +59,21 @@ router.post('/login', async (req, res) => {
     const accesstoken = await signAccessToken(user_info.email)
     console.log(accesstoken)
 
-    res.cookie('accesstoken', accesstoken, {
-      httpOnly: true,
-      // maxAge: 1000 * 60 * 60 * 10
-      maxAge: 18000000,
-      sameSite: 'none',
-      secure: true,
-      domain: 'vercel.app'
-    })
-
-    res.status(200).json({
-      message: 'User logged in',
-      user: loggedinUser,
-      accesstoken: accesstoken
-    })
+    res
+      .status(200)
+      .cookie('accesstoken', accesstoken, {
+        httpOnly: true,
+        // maxAge: 1000 * 60 * 60 * 10
+        maxAge: 18000000,
+        sameSite: 'none',
+        secure: true,
+        domain: 'vercel.app'
+      })
+      .json({
+        message: 'User logged in',
+        user: loggedinUser,
+        accesstoken: accesstoken
+      })
   } else {
     res.status(500).send({
       message: 'Error encountered during registering.'
