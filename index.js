@@ -12,7 +12,7 @@ const app = express()
 
 const PORT = process.env.PORT || 8080
 app.use(express.json())
-app.use(cors({ credentials: true }))
+app.use(cors({ credentials: true, origin: 'http://localhost:3000' }))
 app.set('trust proxy', 1)
 app.use(cookieParser())
 app.set(
