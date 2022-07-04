@@ -64,7 +64,8 @@ router.post('/login', async (req, res) => {
       // maxAge: 1000 * 60 * 60 * 10
       maxAge: 18000000,
       sameSite: 'none',
-      secure: true
+      secure: true,
+      domain: 'vercel.app'
     })
 
     res.status(200).json({
