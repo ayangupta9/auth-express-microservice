@@ -56,6 +56,8 @@ async function registerUser (user_info) {
 function verifyAccessToken (req, res, next) {
   const ACCESS_TOKEN_SECRET = 'accesstokensecret'
 
+  console.log(req.cookies)
+
   if (
     !req.cookies.accesstoken ||
     req.cookies.accesstoken === 'undefined' ||
