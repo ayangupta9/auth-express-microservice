@@ -89,7 +89,7 @@ function signAccessToken (email) {
     jwt.sign(
       payload,
       ACCESS_TOKEN_SECRET,
-      { expiresIn: '10h' },
+      { expiresIn: '5h' },
       (err, token) => {
         if (err) {
           console.error(err)
